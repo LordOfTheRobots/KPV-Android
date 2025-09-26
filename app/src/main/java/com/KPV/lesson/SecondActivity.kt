@@ -6,9 +6,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 
 
 class SecondActivity: ComponentActivity() {
@@ -17,8 +21,9 @@ class SecondActivity: ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Column{
+                Spacer(modifier = Modifier.padding(30.dp))
                 MessageShow(intent.getStringExtra("message"), stringResource(R.string.second_activity))
-                ActivityTrans(stringResource(R.string.first_activity),
+                ActivityTrans(stringResource(R.string.third_activity),
                     this@SecondActivity,
                     intent.getStringExtra("message"),
                     ThirdActivity::class.java,
@@ -28,7 +33,7 @@ class SecondActivity: ComponentActivity() {
                     this@SecondActivity,
                     intent.getStringExtra("message"),
                     MainActivity::class.java,
-                    ::IntentConfigFromSecondToFirstScreen
+                    ::IntentConfigDefault
                 )
             }
 
@@ -44,10 +49,3 @@ fun MessageShow(
     str?.ifEmpty { "$screenWord screen" }?.let { Text( text= it) }
 }
 
-fun IntentConfigFromSecondToFirstScreen(
-    intent: Intent
-){
-    intent.apply{
-        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-    }
-}

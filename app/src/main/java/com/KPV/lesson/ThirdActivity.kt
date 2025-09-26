@@ -6,7 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.core.content.IntentCompat
 
 class ThirdActivity: ComponentActivity() {
@@ -15,6 +19,7 @@ class ThirdActivity: ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Column{
+                Spacer(modifier = Modifier.padding(30.dp))
                 MessageShow(intent.getStringExtra("message"), stringResource(R.string.third_activity))
                 ActivityTrans(stringResource(R.string.first_activity),
                     this@ThirdActivity,
@@ -29,5 +34,5 @@ class ThirdActivity: ComponentActivity() {
 }
 
 fun IntentConfigFromThirdToFirstScreen(intent: Intent){
-    intent.apply { flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP }
+    intent.apply { flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT }
 }
