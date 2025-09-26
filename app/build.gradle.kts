@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.KPV.lesson"
+    namespace = "com.kpv.lesson"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.KPV.lesson"
+        applicationId = "com.kpv.lesson"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
