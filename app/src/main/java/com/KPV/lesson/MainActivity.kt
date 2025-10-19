@@ -1,47 +1,84 @@
-package com.KPV.lesson
+package com.kpv.lesson
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.KPV.lesson.ui.theme.LessonTheme
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import java.lang.Class
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            LessonTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            val message =  remember{ mutableStateOf("") }
+            Column {
+                Spacer(modifier = Modifier.padding(30.dp))
+                Input(message)
+                ActivityTrans(
+                    stringResource(R.string.second_activity),
+                    this@MainActivity,
+                    message.value,
+                    SecondActivity::class.java,
+                    ::IntentConfigDefault)
+                ActivityTrans(
+                    stringResource(R.string.third_activity),
+                    this@MainActivity,
+                    message.value,
+                    ThirdActivity::class.java,
+                    ::IntentConfigDefault) }
         }
     }
+
 }
 
+
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+fun ActivityTrans(
+    text: String,
+    packageContext: ComponentActivity,
+    message: String?,
+    clazz : Class<*>,
+    intentConfig:(input:Intent)->Unit
+){
+    val str: String = stringResource(R.string.screen_trans)
+    Button(
+        onClick = {
+            val intent = Intent(packageContext, clazz)
+            intentConfig(intent)
+            intent.putExtra("message", message)
+            packageContext.startActivity(intent)
+                  },
+        content = { Row{Text(text = str + text)} }
     )
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    LessonTheme {
-        Greeting("Android")
-    }
+fun Input(
+    message: MutableState<String>
+){
+    TextField(
+        value = message.value,
+        onValueChange = {message.value=it},
+        placeholder = {Text(text = stringResource(R.string.enter_smth))}
+    )
 }
+
+fun IntentConfigDefault(intent:Intent){
+}
+
