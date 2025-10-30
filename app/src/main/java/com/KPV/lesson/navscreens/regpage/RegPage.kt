@@ -62,7 +62,9 @@ fun RegPage(
             }
             Confirm(email,
                 password,
-                emailInvalid, passwordInvalid, navController)
+                passwordInvalid,
+                emailInvalid,
+                navController)
         }
     }
 }
