@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lesson</string>
-    <string name="first_activity">first</string>
-    <string name="second_activity">second</string>
-    <string name="third_activity">third</string>
-    <string name="screen_trans">Transition on screen:</string>
-    <string name="enter_smth">Enter</string>
+    <string name="enter_email">Enter email</string>
+    <string name="enter_password">Enter password</string>
+    <string name="show_password">Show</string>
+    <string name="confirm">Confirm</string>
+    <string name="not_email">It\'s not email</string>
+    <string name="no_letters">No letters</string>
+    <string name="no_uppercase">No uppercase letters</string>
+    <string name="not_enough_letters">Not enough letters (min 8)</string>
+    <string name="no_lowercase">No lowercase letters</string>
+    <string name="no_numbers">No numbers</string>
+    <string name="no_spec_chars">No special characters</string>
+    <string name="notes">Notes</string>
+    <string name="not_found_email">Email not found</string>
+    <string name="create_note">Create Note</string>
+    <string name="enter_note_title">Enter note title</string>
+    <string name="enter_note_text">Enter note text</string>
+    <string name="save_note">Save</string>
+    <string name="title_cannot_be_empty">Title cannot be empty</string>
+
 </resources>
