@@ -19,5 +19,11 @@
     <string name="enter_note_text">Enter note text</string>
     <string name="save_note">Save</string>
     <string name="title_cannot_be_empty">Title cannot be empty</string>
-
+    <string name="city_name">Введите название города</string>
+    <string name="feels">Ощущается как</string>
+    <string name="wind">Ветер</string>
+    <string name="humidity">Влажность</string>
+    <string name="weather_request">Узнать погоду</string>
+    <string name="city_not_found">Город не найден</string>
+    <string name="error">Ошибка</string>
 </resources>

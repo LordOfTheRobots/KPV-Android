@@ -18,6 +18,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val apiKey = project.findProperty("API_KEY")?.toString()?.let { "\"$it\"" } ?: "\"bd5e378503939ddaee76f12ad7a97608\""
+
+        buildConfigField("String", "API_KEY", apiKey)
     }
 
     buildTypes {
@@ -40,6 +44,7 @@ android {
     }
 
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 
@@ -61,6 +66,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
@@ -69,12 +77,11 @@ dependencies {
 
     implementation(libs.compose.navigation)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    implementation("androidx.navigation:navigation-compose:2.7.5")
 
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+
+    implementation("androidx.compose.material3:material3:1.1.2")
 }
