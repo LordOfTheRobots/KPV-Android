@@ -10,6 +10,7 @@ import com.kpv.bankcardsmanagement.core.navigation.MapRoute
 import com.kpv.bankcardsmanagement.core.navigation.SettingsRoute
 import com.kpv.bankcardsmanagement.core.navigation.TransactionsRoute
 import com.kpv.bankcardsmanagement.core.navigation.TransfersRoute
+import com.kpv.bankcardsmanagement.core.navigation.hw9
 
 @Composable
 fun AppNavGraph(
@@ -20,6 +21,7 @@ fun AppNavGraph(
     onTransferScreen: @Composable () ->Unit,
     onSettingsRoute:@Composable () -> Unit,
     onMapsRoute: @Composable () -> Unit,
+    onHw9Route: @Composable () -> Unit,
     startDestination: Any = AuthRoute
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
@@ -29,5 +31,6 @@ fun AppNavGraph(
         composable<TransfersRoute> { onTransferScreen()}
         composable<SettingsRoute> { onSettingsRoute() }
         composable<MapRoute>{onMapsRoute()}
+        composable<hw9> { onHw9Route() }
     }
 }

@@ -12,6 +12,7 @@ import com.kpv.bankcardsmanagement.core.navigation.AuthRoute
 import androidx.lifecycle.ViewModelProvider
 import com.kpv.bankcardsmanagement.cards.ui.CardsScreen
 import com.kpv.bankcardsmanagement.core.navigation.CardsRoute
+import com.kpv.bankcardsmanagement.core.navigation.hw9
 import com.kpv.bankcardsmanagement.feature.cards.viewmodel.CardsViewModel
 import com.kpv.bankcardsmanagement.feature.core.bars.BottomNavigationBar
 import com.kpv.bankcardsmanagement.maps.MapViewModel
@@ -22,6 +23,7 @@ import com.kpv.transactions.TransactionsViewModel
 import com.kpv.transactions.ui.TransactionsScreen
 import com.kpv.transfer.TransfersViewModel
 import com.kpv.transfer.ui.TransfersScreen
+import itis.summer.hw9.InteractiveDiagramScreen
 
 @Composable
 fun AppRoot(
@@ -33,7 +35,7 @@ fun AppRoot(
     AppNavGraph(
 
         navController = navController,
-        startDestination = if (isAuthenticated) CardsRoute else AuthRoute,
+        startDestination = hw9,
         onAuthScreen = {
             val authViewModel: AuthViewModel = viewModel(factory = viewModelFactory)
             GradientScaffold(authViewModel, { BottomNavigationBar(navController) }) {
@@ -78,7 +80,8 @@ fun AppRoot(
             GradientScaffold(mapsViewModel, { BottomNavigationBar(navController) }) {
                 MapScreen(viewModel = mapsViewModel)
             }
-        }
+        },
+        onHw9Route = {InteractiveDiagramScreen()}
     )
 
 }

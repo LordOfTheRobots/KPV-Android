@@ -1,12 +1,8 @@
-import java.util.Properties
-
-plugins{
-    alias(libs.plugins.android.application)
+plugins{ alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.google.services)
-    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -14,40 +10,16 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.kpv.bankcardsmanagement"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        lint.targetSdk = 36
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
-
-        val localProperties = Properties().apply {
-            val localPropertiesFile = rootProject.file("local.properties")
-            if (localPropertiesFile.exists()) {
-                load(localPropertiesFile.inputStream())
-            }
-        }
-
-        val apiBaseUrl = localProperties.getProperty("API_BASE_URL")
-            ?.trim()
-            ?.removeSurrounding("\"")
-            ?: "http://10.0.2.2:8080/"
-
-        val yandexMapKitKey = localProperties.getProperty("YANDEX_MAPKIT_API_KEY")
-            ?.trim()
-            ?.removeSurrounding("\"")
-            ?: ""
-
-        buildConfigField("String", "API_BASE_URL", "\"$apiBaseUrl\"")
-        buildConfigField("String", "YANDEX_API_KEY", "\"$yandexMapKitKey\"")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = true
-            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -58,6 +30,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
     kotlin {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
@@ -66,7 +43,7 @@ android {
     }
 
     buildFeatures {
-        buildConfig = true
+        buildConfig = false
         compose = true
     }
 
@@ -90,31 +67,13 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:core"))
-    implementation(project(":feature:auth"))
-    implementation(project(":feature:cards"))
-    implementation(project(":feature:hw9"))
-    implementation(project(":feature:map"))
-    implementation(project(":feature:settings"))
-    implementation(project(":feature:transactions"))
-    implementation(project(":feature:transfer"))
-
-    implementation(project(":core:ui"))
-    implementation(project(":core:network"))
-    implementation(project(":core:database"))
     implementation(project(":core:maps"))
-    implementation(project(":core:common"))
-    implementation(project(":core:navigation"))
-
-    implementation(project(":data"))
-    implementation(project(":domain:repository"))
-
-    implementation(libs.dagger.dagger)
+    implementation(project(":core:ui"))
     implementation(project(":domain:usecases"))
+    implementation(project(":domain:core"))
+    implementation(libs.dagger.dagger)
     ksp(libs.dagger.compiler)
-
     implementation(libs.yandex.mapkit)
-
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
@@ -132,6 +91,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
 
+    implementation(libs.androidx.material.icons.extended)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext)
     androidTestImplementation(libs.espresso.core)
@@ -139,8 +100,4 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
-
-    implementation("com.google.firebase:firebase-analytics")
 }
