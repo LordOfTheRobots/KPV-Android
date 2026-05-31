@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">Bank Cards Management</string>
+    <string name="login_title">Вход в аккаунт</string>
+    <string name="register_title">Создание аккаунта</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Пароль</string>
+
+    <string name="button_login">Войти</string>
+    <string name="button_register">Зарегистрироваться</string>
+
+    <string name="toggle_to_register">Нет аккаунта? Зарегистрироваться</string>
+    <string name="toggle_to_login">Уже есть аккаунт? Войти</string>
+    <string name="forgot_password">Забыли пароль?</string>
+
+    <string name="error_password_no_digits">Добавьте хотя бы одну цифру</string>
+    <string name="error_password_no_special_chars">Добавьте спецсимвол (!@#$%…)</string>
+    <string name="error_password_no_lowercase">Добавьте строчную букву</string>
+    <string name="error_password_no_uppercase">Добавьте заглавную букву</string>
+
+    <string name="error_password_short">Минимум 8 символов</string>
+    <string name="error_invalid_credentials">Неверный email</string>
+    <string name="error_user_exists">Пользователь уже существует</string>
+    <string name="error_server">Ошибка сервера</string>
+    <string name="error_network">Проблема с сетью</string>
+    <string name="error_unknown">Неизвестная ошибка</string>
+
+    <string name="loading">Загрузка…</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+
+    <string name="nav_cards">Карты</string>
+    <string name="nav_transactions">Транзакции</string>
+    <string name="nav_map">Карта</string>
+    <string name="nav_settings">Настройки</string>
+
+    <string name="total_balance">Общий баланс</string>
+    <string name="my_cards">Мои карты</string>
+    <string name="add_card">Добавить карту</string>
+    <string name="card_number_hint">Номер карты</string>
+    <string name="expire_hint">Срок (ММ/ГГ)</string>
+    <string name="cancel">Отмена</string>
+    <string name="add">Добавить</string>
+    <string name="error_invalid_number">Неверный номер карты</string>
+    <string name="error_invalid_date">Неверный формат срока</string>
+    <string name="error_loading">Ошибка загрузки</string>
+    <string name="no_cards">Карты не найдены</string>
+
+    <string name="set_as_primary">Установить для Samsung Pay</string>
+    <string name="block_card">Заблокировать карту</string>
+    <string name="delete_card">Удалить</string>
+    <string name="transactions_label">Транзакции</string>
+    <string name="weekly_spending">Траты за неделю</string>
+    <string name="no_transactions">Нет транзакций</string>
+    <string name="error_primary_failed">Не удалось установить карту</string>
+    <string name="error_block_failed">Не удалось заблокировать карту</string>
+    <string name="spending_today">Сегодня</string>
+    <string name="spending_yesterday">Вчера</string>
+    <string name="details">Детали</string>
+    <string name="close">Закрыть</string>
+
+    <string name="transactions_title">Транзакции</string>
+    <string name="monthly_income">Доход за месяц</string>
+    <string name="monthly_expense">Расход за месяц</string>
+    <string name="filter_all">Все</string>
+    <string name="filter_income">Доходы</string>
+    <string name="filter_expense">Расходы</string>
+    <string name="error_loading_transactions">Ошибка загрузки транзакций</string>
+
+    <string name="transfer_title">Перевод</string>
+    <string name="from_card_label">Откуда</string>
+    <string name="to_card_label">Куда</string>
+    <string name="amount_label">Сумма</string>
+    <string name="description_label">Назначение</string>
+    <string name="send_button">Перевести</string>
+    <string name="transfer_success">Перевод выполнен</string>
+    <string name="transfer_error">Ошибка перевода</string>
+    <string name="insufficient_funds">Недостаточно средств</string>
+    <string name="invalid_amount">Введите корректную сумму</string>
+
+    <string name="select_source_card">Откуда списать</string>
+    <string name="no_active_cards">Нет активных карт для перевода</string>
+    <string name="card_balance_fmt">Баланс</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="profile_section">Профиль</string>
+    <string name="email_label">Email</string>
+    <string name="phone_label">Телефон</string>
+    <string name="telegram_label">Telegram</string>
+    <string name="role_label">Роль</string>
+    <string name="logout_button">Выйти</string>
+    <string name="logout_confirm">Подтвердите выход</string>
+    <string name="error_loading_profile">Ошибка загрузки профиля</string>
+
+    <string name="search_hint">Поиск адреса</string>
+    <string name="search_button">Найти</string>
+    <string name="search_results">Результаты поиска</string>
+    <string name="nearby_banks">Банкоматы рядом</string>
+    <string name="navigate_to">Построить маршрут</string>
+    <string name="error_loading_map">Ошибка загрузки карты</string>
+    <string name="no_results">Ничего не найдено</string>
+
+    <string name="card_premium">ПРЕМИУМ</string>
+    <string name="card_valid_thru">ДЕЙСТВУЕТ ДО</string>
+    <string name="card_balance">БАЛАНС</string>
+    <string name="card_bank_name">БАНК</string>
+    <string name="add_card_hint">Нажмите + чтобы добавить первую карту</string>
+
+    <string name="error_invalid_card_number">Invalid card number</string>
+    <string name="retry">Повторить</string>
+    <string name="no_transactions_hint">Транзакции появятся после первых операций</string>
+</resources>
